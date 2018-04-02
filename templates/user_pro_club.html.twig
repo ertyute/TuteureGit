@@ -1,0 +1,21 @@
+{% extends "template.html.twig" %}
+
+{% block section %}
+<body>
+	<section>
+		<h1>Votre club</h1>
+
+		{% if count == 0 %}
+		Vous n'avez pas de club défini. <br>
+		<a href=""> Créez votre préstation</a>
+			<br>
+		Un club vous appartient? <br>
+		Contactez nous.
+		{% else %}
+		Votre club
+		{% endif %}
+	</section>
+	</body>
+</html>
+
+{% endblock %}

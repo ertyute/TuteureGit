@@ -1,0 +1,122 @@
+@mixin gradient($color1, $color2) {
+
+	@if type-of($color1) != color {
+			$color1: #119DA4;
+		}
+	@if type-of($color2) != color {
+			$color2: #0D5C63;
+		}
+	background: $color1; /* Old browsers */
+	background: -moz-linear-gradient(left, $color1 0%, $color2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, $color1 0%,$color2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, $color1 0%,$color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 ); /* IE6-9 */
+
+}
+
+
+@mixin textarea() {
+	border-radius: 15px;
+	border: 1px solid map-get($colors, darkblue);
+	resize: vertical;
+}
+
+@mixin bcg_image {
+	background: url("../images/website/bcg.jpg");
+	background-repeat: no-repeat;
+    background-color: #cccccc;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+     background-attachment: fixed;
+}
+
+@mixin sliding_btn {
+		width: 1em;
+		height:2em;
+		background-color: white;
+		padding-top: 1em;
+		padding-left: 0.3em;
+		box-shadow: 3px 3px 2px grey;
+		div {
+			width: 0.7em;
+			height: 0.7em;
+			border-left: 2px solid black;
+			border-bottom: 2px solid black;
+			border-radius: 2px;
+			transform: rotate(45deg);
+		}
+}
+
+@mixin button {
+	display: block;
+	//height: 25px;
+	border-radius: 15px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 7px;
+	margin-bottom: 1em;
+	margin-top: 1em;
+	text-decoration: none;
+}
+
+@mixin square($dimensions) {/*pour les menus*/
+    font-size: 1.25em;
+    height: $dimensions;
+    width: $dimensions;
+    background-color: map-get($colors, darkblue);
+    text-align: center;
+    cursor: pointer; 
+    display: table-cell; /* comportement visuel de cellule */
+ 	vertical-align: middle;
+ 	&:hover {
+ 		background-color: map-get($colors, lightblue);
+		@include transition(background-color, 200ms);
+ 	}
+}
+
+@mixin element {
+		text-transform: uppercase;
+		text-align: center;
+		padding-top: 10px;
+		text-decoration: none;
+}
+
+
+@mixin transition($thing, $time) {
+		-webkit-transition: $thing $time linear;
+    	-ms-transition: $thing $time linear;
+    	transition: $thing $time linear;
+}
+
+@mixin icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		background-color: white;
+		border: 1px solid black;
+		float: left;
+		margin: 0.5em;
+}
+
+@mixin item {
+    background-color: white;
+ 	vertical-align: middle;
+ 	padding: 2em;
+ 	border-radius: 15px;
+ 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+@mixin arrow($type, $px, $color) {
+	@if ($type == down) { 
+	  	border-top: $px solid $color;
+	}
+	@if ($type == up) {  
+	  	border-bottom: $px solid $color;
+	}
+	border-left: $px solid transparent;
+	border-right: $px solid transparent;
+	width: 0; 
+	height: 0;
+}

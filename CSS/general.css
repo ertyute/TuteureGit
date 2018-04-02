@@ -1,0 +1,425 @@
+@charset "UTF-8";
+@import url(reset.css);
+/*----------------------------------------*/
+/*----------------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,500,500i,900");
+/*----------------------------------------*/
+/*----------------------------------------*/
+body {
+  font-size: 100%;
+  font-family: Montserrat, sans-serif;
+  background-color: #F4F4F2;
+  overflow-x: hidden; }
+
+/*---------------------------------------------------*/
+h1 {
+  font: 3em Montserrat, sans-serif;
+  font-weight: 900;
+  color: #f0573c; }
+
+h2 {
+  font: 2em Montserrat, sans-serif;
+  color: #f0573c; }
+
+h3 {
+  font: 1.3em Montserrat, sans-serif;
+  color: #f0573c;
+  text-transform: uppercase;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+h4 {
+  font: 1.3em Montserrat, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: #f0573c;
+  margin-bottom: 1em; }
+
+/*---------------------decoration---------------------*/
+hr {
+  background-color: lightgrey;
+  height: 1px;
+  border-width: 0; }
+
+.arrow {
+  border-top: 35px solid #f0573c;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  width: 0;
+  height: 0;
+  margin-left: 46%; }
+
+.arrow_up {
+  border-bottom: 35px solid white;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  width: 0;
+  height: 0; }
+
+.heart_icon {
+  width: 30px; }
+
+[id^='favori'] {
+  display: none; }
+
+/*---------------------*/
+#user_icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer; }
+
+.user_icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: white; }
+
+.user_icon_big {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  background-color: white;
+  cursor: pointer; }
+
+header {
+  height: 100vh;
+  background: url("../images/website/bcg.jpg");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed; }
+  header h1 {
+    text-align: center;
+    width: 100vw;
+    margin-bottom: 1em;
+    font-weight: bold; }
+
+#filter {
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #43b5b2 0%, rgba(255, 0, 0, 0) 100%); }
+
+.star {
+  width: 30px; }
+
+/*---------FORMS------------------------*/
+input[type="text"], input[type="password"] {
+  border-radius: 15px;
+  border: 1px solid #33bcb7;
+  resize: vertical;
+  font-family: Montserrat, sans-serif;
+  height: 2em;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
+
+#msg_nom,
+#msg_mdp,
+#msg_mdp1,
+#msg_mail,
+#msg_mail1 {
+  display: none; }
+
+textarea {
+  border-radius: 15px;
+  border: 1px solid #33bcb7;
+  resize: vertical;
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  min-width: 30vw;
+  width: 50%;
+  height: 20vh; }
+
+/*-----------GESTION D'UPLOAD DES IMAGES------------------*/
+/*
+Inspiration:
+https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+*/
+label[for=file0],
+label[for=file1],
+label[for=file2],
+label[for=file3] {
+  /*pour les menus*/
+  font-size: 1.25em;
+  height: 4em;
+  width: 4em;
+  background-color: #33bcb7;
+  text-align: center;
+  cursor: pointer;
+  display: table-cell;
+  /* comportement visuel de cellule */
+  vertical-align: middle;
+  color: white;
+  display: inline-block;
+  padding: 2em;
+  margin: 0.3em; }
+  label[for=file0]:hover,
+  label[for=file1]:hover,
+  label[for=file2]:hover,
+  label[for=file3]:hover {
+    background-color: #08a0b3;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear; }
+
+.on_delete {
+  /*utilise pour les upload des images*/
+  background-size: 160px;
+  position: relative; }
+  .on_delete:hover {
+    background-image: none !important;
+    transition: background-image, 1s; }
+    .on_delete:hover span::after {
+      content: '\002715';
+      font-size: 5em;
+      color: white;
+      display: block;
+      margin-top: 10px; }
+
+#clearfix::after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both; }
+
+.input_images {
+  position: relative;
+  float: left; }
+  .input_images .image_checkbox {
+    /**/
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    opacity: 0; }
+    .input_images .image_checkbox:hover + label {
+      background-image: none !important;
+      background-color: #08a0b3;
+      -webkit-transition: background-color 200ms linear;
+      -ms-transition: background-color 200ms linear;
+      transition: background-color 200ms linear; }
+      .input_images .image_checkbox:hover + label span::after {
+        content: '\002715';
+        font-size: 5em;
+        color: white; }
+
+/**-----------------------------------*/
+.forme {
+  width: 70vw;
+  min-width: 700px;
+  margin: auto; }
+  .forme h1 {
+    text-align: center;
+    margin-top: 1em; }
+
+.edit_club {
+  margin-top: 3em;
+  background-color: #e6e6e6;
+  border-radius: 20px;
+  padding: 3em; }
+  .edit_club > div {
+    background-color: white;
+    vertical-align: middle;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: auto;
+    width: 50%;
+    min-width: 500px;
+    margin-bottom: 2em; }
+    .edit_club > div input[name="name"] {
+      width: 30vw;
+      min-width: 20em; }
+  .edit_club input[type="text"] {
+    width: 30vw;
+    min-width: 20em; }
+  .edit_club input[type="submit"], .edit_club input[type="button"] {
+    margin: auto;
+    margin-top: 1em; }
+
+input[name="files[]"] {
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+/*----focus manuel pour accessibilité-----*/
+input[name="files[]"]:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px; }
+
+input[name="files[]"] + label {
+  cursor: pointer; }
+
+input[type="submit"] {
+  display: block;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 7px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-decoration: none;
+  max-width: 200px;
+  background: #33bcb7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #33bcb7 0%, #08a0b3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  color: white;
+  margin: 1em;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  width: 100px; }
+
+input[type="button"] {
+  display: block;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 7px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-decoration: none;
+  max-width: 200px;
+  background-color: #f0573c;
+  margin: 1em;
+  padding: 0.5em;
+  border: 0px solid #33bcb7;
+  width: 100px;
+  color: white; }
+
+/*------------------------------------------------------------------*/
+.btn, .map_btn {
+  display: block;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 7px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-decoration: none;
+  width: auto;
+  max-width: 200px;
+  background: #33bcb7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #33bcb7 0%, #08a0b3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  color: white; }
+
+.btn:active, .map_btn:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  background: #FFAF44;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #FFAF44 0%, #FFAF44 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #FFAF44 0%, #FFAF44 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #FFAF44 0%, #FFAF44 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  color: white;
+  -webkit-transition: "background-color" 200ms linear;
+  -ms-transition: "background-color" 200ms linear;
+  transition: "background-color" 200ms linear;
+  border: 1px solid transparent; }
+
+.btn-empty {
+  display: block;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 7px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-decoration: none;
+  border: 1px solid #33bcb7;
+  color: #33bcb7;
+  max-width: 150px; }
+
+.map_btn {
+  width: 100px;
+  margin: auto;
+  margin-top: 1em; }
+
+#msg {
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  color: red;
+  background-color: white;
+  position: fixed;
+  top: 80px;
+  left: 40%; }
+
+.menu_square {
+  /*pour les menus*/
+  font-size: 1.25em;
+  height: 10em;
+  width: 10em;
+  background-color: #33bcb7;
+  text-align: center;
+  cursor: pointer;
+  display: table-cell;
+  /* comportement visuel de cellule */
+  vertical-align: middle; }
+  .menu_square:hover {
+    background-color: #08a0b3;
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear; }
+  .menu_square a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase; }
+
+/*--------------------------error handling------------------------------*/
+.error {
+  border: 3px solid #f0573c !important; }
+
+#error_msg {
+  display: none;
+  color: #f0573c;
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 1em; }
+
+.error_msg {
+  display: none; }
+
+/*----------------commentaires---------------------------------*/
+div[id^='repondre_'] {
+  display: none; }
+
+.hidden {
+  display: none; }
+
+/*# sourceMappingURL=general.css.map */

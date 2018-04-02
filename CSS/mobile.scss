@@ -1,0 +1,201 @@
+@import "_valeursGlobales.scss";
+
+#logo {font: map-get($fonts, logo);
+			text-decoration: none;
+			color: map-get($colors, lightblue);
+			background-color: white;
+			display: block;
+			width: 100vw;
+			text-align: center;
+
+	}
+
+/*--------------- PAGE INDEX -----------------------*/
+.nav {
+	width: 100vw;
+	height: 80px;
+	@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
+	color: white;
+	position: -webkit-sticky;
+  	position: sticky;
+  	top: -1px;
+  	z-index: 3;
+
+	li { //navigation
+		display: inline;
+		float: right;
+		margin-right: 1em;
+		a {text-decoration: none;
+			text-transform: uppercase;}
+	}
+	#connexion { text-decoration: none;
+			color: white;
+			text-transform: uppercase; 
+			position: absolute;
+			right: 10%;
+			top: 30px;
+		};
+
+	.active {border-bottom: 1px solid white;
+		padding-bottom: 0.3em;}
+	#user_icon {
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: white;
+			cursor: pointer;
+			float: right;
+			margin-right: 10%;
+			margin-top: 13px;
+					}
+
+	#lang {
+		//background-color: (map-get($colors, darkblue));
+		height: 100%;
+		position: relative;
+		width: 50px;
+		float: left;
+		div:first-child {border-bottom: 1px solid white; }
+		div {
+			padding: 0.7em;
+			text-align: center;
+			cursor: pointer;
+			@include transition(background-color, 100ms);
+		}
+		div:active {background-color: map-get($colors, darkblue);}
+	}
+}
+
+#mobile_menu {
+	position: absolute;
+	right: 50%;
+	top: 30px;
+	cursor: pointer;
+	&+div {
+	position: absolute;
+	top: 80px;
+	background-color: white;
+	height:85vh;
+	display: none;
+	z-index: 5;
+	.active {border: 1px solid map-get($colors, darkblue);	
+	}
+	li {display: block;
+			width: 99vw;
+			text-transform: uppercase;
+			text-decoration: none;
+			text-align: center;
+			padding-top: 1em;
+			padding-bottom: 1em;
+			a {color: map-get($colors, darkblue);}
+	}
+}
+}
+
+	.user_menu {
+		display: none;
+		position: absolute;
+		top: 80px;
+		width: 100vw;
+		height:85vh;
+		background-color: white;
+		z-index: 5;
+
+		a {display: block;
+			width: 93vw;
+			text-transform: uppercase;
+			text-decoration: none;
+			color: map-get($colors, darkblue);
+			text-align: center;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+
+	}
+
+/*------------------------------*/
+header {
+	h1 {
+		padding-top: 20vh;
+	}
+	input[type=text] {
+		width: 80vw;
+		display: block;
+		margin: auto;	
+	}
+}
+
+.three_icons {
+	height: 70vh;
+	margin-top: 10vh;
+	div { float: left;
+		width: 100vw;
+		text-align: center;
+		margin-top: 3em;
+		span {
+			display: block;
+			padding: 1em;
+			font-size: 1.1em;
+
+		}
+	}
+}
+/*--------------------- CLUB ------------------------------*/
+section {
+	margin:  1em;
+}
+.revenir {
+	color: black;
+	display: block;
+	padding-bottom: 1.3em;
+}
+
+.left {
+	float: left;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding-left: 1em;
+	p {margin-top: 2em;
+	line-height: 1.4;
+	}
+}
+	div:nth-child(4) {
+	line-height: 1.6;
+	}
+
+.comments {
+	width: 90vw;
+
+ & > div {
+	border-radius: 10px;
+	border: 1px solid lightgrey;
+	padding: 1em;
+	margin: 1em;
+	float: left;
+	background-color: white;
+	width: 75vw;
+}
+}
+
+
+.bordered {
+	border-radius: 10px;
+	border: 1px solid lightgrey;
+	padding: 1em;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	margin: 0.5em;
+	float: left;
+	width: 60vw;
+}
+
+/*---------------------------------------------------*/
+
+footer {
+	width: 100vw;
+	height: 50vh;
+	display: flex;
+	bottom: 0;
+	@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
+	z-index: 3;
+}

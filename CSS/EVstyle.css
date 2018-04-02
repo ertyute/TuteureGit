@@ -1,0 +1,335 @@
+/*----------------------------------------*/
+/*----------------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,500,500i,900");
+/*----------------------------------------*/
+/*----------------------------------------*/
+/*--------------- PAGE INDEX -----------------------*/
+#mobile_menu {
+  display: none; }
+
+header h1 {
+  padding-top: 40vh;
+  color: white; }
+header form {
+  position: absolute;
+  top: 54vh;
+  left: 40%; }
+
+/*---------------NAVIGATION TOP -----------------------*/
+#logo {
+  font: 3em Caveat, sans-serif;
+  text-decoration: none;
+  color: #08a0b3;
+  position: fixed;
+  padding-top: 0.1em;
+  padding-left: 1em;
+  z-index: 6;
+  left: 0; }
+
+.nav {
+  position: fixed;
+  width: 99vw;
+  height: 80px;
+  z-index: 5;
+  background-color: white;
+  color: #08a0b3;
+  box-shadow: 3px 3px 5px rgba(150, 150, 150, 0.1);
+  /*----------user menu---------------*/ }
+  .nav li {
+    display: inline;
+    float: right;
+    margin-right: 30px; }
+    .nav li a {
+      text-decoration: none;
+      color: #08a0b3;
+      text-transform: uppercase; }
+  .nav #connexion {
+    text-decoration: none;
+    color: #08a0b3;
+    text-transform: uppercase; }
+  .nav .active {
+    border-bottom: 1px solid #08a0b3;
+    padding-bottom: 0.3em; }
+  .nav > div {
+    float: right;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 20px; }
+  .nav #user_icon {
+    position: relative;
+    top: -20px; }
+  .nav .user_menu {
+    background-color: #e6e6e6;
+    color: black;
+    height: auto;
+    width: 10em;
+    position: absolute;
+    padding: 1em;
+    top: 5em;
+    right: 3.2em;
+    display: none;
+    z-index: -2;
+    box-shadow: 3px 3px 5px rgba(150, 150, 150, 0.1); }
+    .nav .user_menu a {
+      display: block;
+      text-decoration: none;
+      padding-top: 1em; }
+    .nav .user_menu .menu_deco {
+      border-bottom: 15px solid #e6e6e6;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: -0.95em;
+      left: 4.6em; }
+    .nav .user_menu #username {
+      padding: 1em; }
+  .nav #lang {
+    height: 100%;
+    position: relative;
+    top: -30px;
+    right: -20px;
+    width: 50px; }
+    .nav #lang div:first-child {
+      border-bottom: 1px solid white; }
+    .nav #lang div {
+      padding: 0.7em;
+      text-align: center;
+      cursor: pointer;
+      -webkit-transition: background-color 100ms linear;
+      -ms-transition: background-color 100ms linear;
+      transition: background-color 100ms linear; }
+    .nav #lang div:active {
+      background-color: #33bcb7; }
+
+.nav-scroll {
+  background-color: transparent !important;
+  color: white !important;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+  box-shadow: none; }
+  .nav-scroll * {
+    color: white !important; }
+
+body section:first-of-type {
+  padding-top: 80px;
+  margin-bottom: 10em; }
+
+.row {
+  padding-left: 5%;
+  display: flex;
+  height: 50vh;
+  margin-top: 10vh; }
+  .row .col-3 {
+    width: 30vw; }
+    .row .col-3 img {
+      width: 15vw;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+  .row span {
+    display: block;
+    font: 1.3em Montserrat, sans-serif;
+    color: #f0573c;
+    text-align: center;
+    padding: 3em; }
+
+/*---------------------------------------------------*/
+footer {
+  width: 99vw;
+  height: 50vh;
+  display: flex;
+  bottom: 0;
+  background: #33bcb7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #33bcb7 0%, #08a0b3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  z-index: 3; }
+
+#recherche {
+  height: 100vh;
+  background-color: red; }
+
+.footer3 {
+  width: 30vw;
+  padding: 2em;
+  float: left; }
+
+/*-------------------------------------------------------*/
+/*MAP*/
+#map {
+  width: 100%;
+  height: 90vh;
+  margin: auto; }
+
+/*-------------------------------------------------------*/
+/*RECHERCHE ET FILTRES*/
+.result_paneau {
+  /*paneau d'affichage des filtres */
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  width: 370px;
+  height: 90vh;
+  overflow-x: hidden;
+  box-shadow: 3px 3px 2px grey; }
+  .result_paneau form {
+    margin: 1em; }
+  .result_paneau #filtres div {
+    margin-top: 1em;
+    margin-bottom: 1em; }
+  .result_paneau #filtres span {
+    /*sections des filtres*/
+    display: block;
+    background-color: #08a0b3;
+    color: white;
+    width: 105%;
+    padding: 0.5em;
+    position: relative;
+    cursor: pointer; }
+  .result_paneau #liste > div {
+    border-bottom: 1px solid #f2f2f2;
+    padding-left: 1em; }
+  .result_paneau #liste > div:hover {
+    background-color: #f2f2f2; }
+  .result_paneau #liste h3 {
+    margin: 0; }
+  .result_paneau #liste .club_icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid black;
+    float: left;
+    margin: 0.5em; }
+
+#make_smaller {
+  /*button pour reduire le paneau des filtres*/
+  position: absolute;
+  z-index: 3;
+  left: 375px;
+  top: 140px;
+  width: 1em;
+  height: 2em;
+  background-color: white;
+  padding-top: 1em;
+  padding-left: 0.3em;
+  box-shadow: 3px 3px 2px grey; }
+  #make_smaller div {
+    width: 0.7em;
+    height: 0.7em;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 2px;
+    transform: rotate(45deg); }
+
+/*--------------- PAGE CLUB -----------------------*/
+.left {
+  width: 50vw;
+  float: left;
+  margin-top: 2em;
+  padding-left: 1em; }
+  .left p {
+    margin-top: 2em;
+    line-height: 1.4; }
+
+div:nth-child(4) {
+  line-height: 1.6; }
+
+.right {
+  float: right;
+  width: 45vw;
+  height: 100vh;
+  position: sticky;
+  top: 80px;
+  z-index: 1; }
+  .right img {
+    position: absolute;
+    width: 45vw; }
+  .right div {
+    position: absolute;
+    top: 70vh;
+    z-index: 5;
+    background-color: white; }
+
+.comments {
+  height: auto;
+  width: 30vw;
+  float: left; }
+  .comments > div {
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    padding: 1em;
+    margin: 1em;
+    float: left;
+    background-color: white;
+    width: 40vw; }
+
+.enfant {
+  margin-left: 4em !important; }
+
+.bordered {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin: 0.5em;
+  float: left;
+  width: 30%; }
+
+/*---------------BACK OFFICE -----------------------*/
+/*--------------------------------------------*/
+.map_titre {
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin-bottom: 2em; }
+
+/*---------------BO: tables -----------------------*/
+table {
+  width: 100%;
+  margin-bottom: 5em; }
+  table th {
+    font-weight: 500;
+    padding: 1em; }
+  table td {
+    padding: 1em; }
+  table tr:nth-child(2n) {
+    background-color: lightgrey; }
+
+.office {
+  width: 80vw;
+  margin: auto; }
+
+section {
+  width: 100vw; }
+
+.club_item {
+  width: 25vw;
+  height: 35vh;
+  min-height: 15em;
+  background-color: white;
+  margin: 1em;
+  float: left;
+  box-shadow: 3px 3px 5px rgba(150, 150, 150, 0.1);
+  position: relative;
+  background-size: 25vw; }
+  .club_item div {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1em; }
+    .club_item div h4 {
+      margin-left: 1em; }
+
+/*# sourceMappingURL=EVstyle.css.map */

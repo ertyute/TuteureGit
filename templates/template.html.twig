@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8"> 
+	<title>Equo Vadis</title>
+
+	<link rel="stylesheet" type="text/css" href="CSS/general.css">
+	<link rel="stylesheet" media="screen and (min-width: 1024px)" type="text/css" href="CSS/EVstyle.css">
+	<link rel="stylesheet" media="screen and (max-width: 650px)" href="CSS/mobile.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="js/general.js"></script>
+	<script src="js/geocoder.js"></script>
+	<script src="js/verify.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd9slKoG41gF1xM8xr_LoEGCxnWrZejoY&callback=initMap">
+	 </script>
+</head>
+<body>
+	<a href="index.php" id="logo">Equo Vadis</a>
+	<div class="nav">
+		<div>
+			<span>FR</span>
+			<span>|</span>
+			<span>EN</span>
+		</div>
+	<div>
+
+		{% if session_active == true %}
+			<img src="{{avatar}}" alt="avatar" id='user_icon'>
+			<div class="user_menu">
+
+				{% if session_type == 'admin' %}
+					<a href="pages/admin_office.php">BACK OFFICE</a>
+				{% elseif session_type == 'pro' %}
+					<a href="user_pro_club.php">MON CLUB</a>
+				{% endif %}
+
+			<div id='username'>{{username}}</div>
+			<a href="user_favoris.php">FAVORIS</a>
+			<a href="user_compte.php">MON COMPTE</a>
+			<a href="pages/logout.php">Déconnecter</a>
+		}
+	</div>
+		{% else %}
+			<a id="connexion" 
+				{% if page == 'login' %} class="active" {% endif %} href="login.php">Connexion</a>
+		{% endif %}
+
+	</div>
+		<div id="mobile_menu">MENU</div>		 
+		<div>		
+			<ul>
+				<li{% if page == 'events' %} class="active" {% endif %}><a href="evenements.php">Evènements</a></li>
+				<li{% if page == 'decouvrir' %} class="active" {% endif %}><a href="decouvrir.php">Découvrir</a></li>
+				<li{% if page == 'recherche' %} class="active" {% endif %}><a href="recherche.php">Recherche</a></li>
+			</ul>
+		</div>
+	</div>
+<!--     END HEADER    -->
+<div>{{page}}</div>
+<!--     DEBUT FOOTER    -->
+{% block section %}
+	{% endblock %}
+<footer>
+	<div class="footer3">
+			<ul>
+				<li><a href="">Recherche</a></li>
+				<li><a href="">Clubs</a></li>
+				<li><a href="">Evènements</a></li>
+				<li><a href="">Découvrir</a></li>
+				<li><a href="">Connexion</a></li>
+			</ul>
+
+	</div>
+	<div class="footer3">
+	fyitj
+
+	</div>
+	<div class="footer3">
+		<h4>Contactez nous</h4>
+		<form action="post.php" method="POST">
+    				<input type="text" id="name" name="name">
+    					<label for="name" id="namelabel">Nom</label>
+    					<label for="name" id="nameerror">Nom non renseigné</label>
+    				<input type="text" id="mail" name="mail">
+    					<label for="mail" id="maillabel">Adresse mail</label>
+    					<label for="mail" id="mailerror">Mail non valide</label>
+    				<textarea id="subject" name="subject" ></textarea>
+    					<label for="subject" id="subjectlabel">Message</label>
+    					<label for="subject" id="subjecterror">Message est vide</label>
+    					<br/>
+    				<input type="submit" onclick="return valider();" value="Envoyer">
+				</form>
+	</div>
+	<div>mentions legales 2018
+	</div>
+</footer>
+</body>
+</html>

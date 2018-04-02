@@ -1,0 +1,201 @@
+/*----------------------------------------*/
+/*----------------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,500,500i,900");
+/*----------------------------------------*/
+/*----------------------------------------*/
+#logo {
+  font: 3em Caveat, sans-serif;
+  text-decoration: none;
+  color: #08a0b3;
+  background-color: white;
+  display: block;
+  width: 100vw;
+  text-align: center; }
+
+/*--------------- PAGE INDEX -----------------------*/
+.nav {
+  width: 100vw;
+  height: 80px;
+  background: #33bcb7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #33bcb7 0%, #08a0b3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  z-index: 3; }
+  .nav li {
+    display: inline;
+    float: right;
+    margin-right: 1em; }
+    .nav li a {
+      text-decoration: none;
+      text-transform: uppercase; }
+  .nav #connexion {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    right: 10%;
+    top: 30px; }
+  .nav .active {
+    border-bottom: 1px solid white;
+    padding-bottom: 0.3em; }
+  .nav #user_icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+    float: right;
+    margin-right: 10%;
+    margin-top: 13px; }
+  .nav #lang {
+    height: 100%;
+    position: relative;
+    width: 50px;
+    float: left; }
+    .nav #lang div:first-child {
+      border-bottom: 1px solid white; }
+    .nav #lang div {
+      padding: 0.7em;
+      text-align: center;
+      cursor: pointer;
+      -webkit-transition: background-color 100ms linear;
+      -ms-transition: background-color 100ms linear;
+      transition: background-color 100ms linear; }
+    .nav #lang div:active {
+      background-color: #33bcb7; }
+
+#mobile_menu {
+  position: absolute;
+  right: 50%;
+  top: 30px;
+  cursor: pointer; }
+  #mobile_menu + div {
+    position: absolute;
+    top: 80px;
+    background-color: white;
+    height: 85vh;
+    display: none;
+    z-index: 5; }
+    #mobile_menu + div .active {
+      border: 1px solid #33bcb7; }
+    #mobile_menu + div li {
+      display: block;
+      width: 99vw;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      padding-top: 1em;
+      padding-bottom: 1em; }
+      #mobile_menu + div li a {
+        color: #33bcb7; }
+
+.user_menu {
+  display: none;
+  position: absolute;
+  top: 80px;
+  width: 100vw;
+  height: 85vh;
+  background-color: white;
+  z-index: 5; }
+  .user_menu a {
+    display: block;
+    width: 93vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #33bcb7;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em; }
+
+/*------------------------------*/
+header h1 {
+  padding-top: 20vh; }
+header input[type=text] {
+  width: 80vw;
+  display: block;
+  margin: auto; }
+
+.three_icons {
+  height: 70vh;
+  margin-top: 10vh; }
+  .three_icons div {
+    float: left;
+    width: 100vw;
+    text-align: center;
+    margin-top: 3em; }
+    .three_icons div span {
+      display: block;
+      padding: 1em;
+      font-size: 1.1em; }
+
+/*--------------------- CLUB ------------------------------*/
+section {
+  margin: 1em; }
+
+.revenir {
+  color: black;
+  display: block;
+  padding-bottom: 1.3em; }
+
+.left {
+  float: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-left: 1em; }
+  .left p {
+    margin-top: 2em;
+    line-height: 1.4; }
+
+div:nth-child(4) {
+  line-height: 1.6; }
+
+.comments {
+  width: 90vw; }
+  .comments > div {
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    padding: 1em;
+    margin: 1em;
+    float: left;
+    background-color: white;
+    width: 75vw; }
+
+.bordered {
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+  padding: 1em;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  margin: 0.5em;
+  float: left;
+  width: 60vw; }
+
+/*---------------------------------------------------*/
+footer {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  bottom: 0;
+  background: #33bcb7;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #33bcb7 0%, #08a0b3 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #33bcb7 0%, #08a0b3 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 );
+  /* IE6-9 */
+  z-index: 3; }
+
+/*# sourceMappingURL=mobile.css.map */

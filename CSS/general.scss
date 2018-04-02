@@ -1,0 +1,359 @@
+@import "reset.css";
+
+@import "_valeursGlobales.scss";
+
+body {
+	font-size: 100%;
+	font-family: map-get($fonts, general);
+	background-color: map-get($colors, background);
+	overflow-x: hidden;
+}
+
+/*---------------------------------------------------*/
+
+
+h1 {
+	font: map-get($fonts, h1);
+	font-weight: 900;
+	color: map-get($colors, text);
+}
+
+h2 {
+	font: map-get($fonts, h2);
+	color: map-get($colors, text);
+}
+
+h3 {
+	font: map-get($fonts, h3);
+	color: map-get($colors, text);
+	text-transform: uppercase;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+h4 {
+	font: map-get($fonts, h3);
+	text-transform: uppercase;
+	font-size: 1.2em;
+	color: map-get($colors, text);
+	margin-bottom: 1em;
+}
+
+
+/*---------------------decoration---------------------*/
+hr {
+	background-color: lightgrey;
+	height: 1px;
+	border-width:0;
+}
+
+.arrow {
+	@include arrow(down, 35px, map-get($colors, text));
+  	margin-left: 46%;
+}
+
+.arrow_up {
+	@include arrow(up, 35px, white);
+
+}
+
+.heart_icon {width: 30px;}
+
+[id^='favori'] {display:none;}
+/*---------------------*/
+#user_icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		cursor: pointer;
+	}
+
+.user_icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		background-color: white;
+	}
+
+.user_icon_big {
+		width: 100px;
+		height: 100px;
+		border-radius: 60px;
+		background-color: white;
+		cursor: pointer;
+	}
+
+
+header {
+	height: 100vh;
+@include bcg_image;
+	h1 {
+		text-align: center;
+		width: 100vw;
+		margin-bottom: 1em; 
+		font-weight: bold;
+
+		}}
+
+#filter {
+	z-index: 0;
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: linear-gradient(to bottom, rgba(67,181,178,1) 0%,rgba(255,0,0,0) 100%);
+}
+
+.star {width: 30px;}
+/*---------FORMS------------------------*/
+
+ input[type="text"], input[type="password"] {
+ 	@include textarea;
+ 	font-family: map-get($fonts, general);
+ 	height: 2em;
+ 	font-size: 1em;
+ 	margin-top:0.5em;
+ 	margin-bottom:0.5em;
+ }
+
+#msg_nom,
+#msg_mdp, 
+#msg_mdp1,
+#msg_mail,
+#msg_mail1
+	{display: none;}
+
+
+ textarea { 
+ 	@include textarea;
+ 	font-family: map-get($fonts, general);
+ 	font-size: 1em;
+ 	margin-top:0.5em;
+ 	margin-bottom:0.5em;
+ 	min-width: 30vw;
+ 	width: 50%;
+ 	height: 20vh;
+ }
+/*-----------GESTION D'UPLOAD DES IMAGES------------------*/
+/*
+Inspiration:
+https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+*/
+label[for=file0],
+label[for=file1], 
+label[for=file2], 
+label[for=file3],
+  {
+	@include square(4em);
+	color: white;
+	display: inline-block;
+	padding: 2em;
+	margin: 0.3em;
+}	
+
+.on_delete { /*utilise pour les upload des images*/
+	background-size: 160px;
+	position: relative;		
+	&:hover {
+		background-image: none!important;
+		transition: background-image, 1s;
+		span::after {
+			content: '\002715';
+			font-size: 5em;
+			color: white;
+			display: block;
+			margin-top: 10px;
+		}
+	}
+}
+
+#clearfix::after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+.input_images {
+	position: relative;
+	float: left;
+	.image_checkbox { /**/
+		position: absolute;
+			width: 160px;
+			height: 160px;
+			left: 0;
+			top: 0;
+			z-index: 5;
+			opacity: 0;
+		&:hover + label {
+		background-image: none!important;
+		background-color: map-get($colors, lightblue);
+		@include transition(background-color, 200ms);
+		span::after {
+			content: '\002715';
+			font-size: 5em;
+			color: white;
+		}
+		}}
+}
+/**-----------------------------------*/
+
+ .forme {
+	width: 70vw;
+	min-width: 700px;
+	margin: auto;
+	h1 {text-align: center;
+		margin-top: 1em;
+	}}
+
+.edit_club {
+
+	margin-top: 3em;
+	background-color: map-get($colors-BO, lightgrey);
+	border-radius: 20px;
+	padding: 3em;
+
+	&>div {
+		@include item;
+		position: relative;
+		margin: auto;
+		width: 50%;
+		min-width: 500px;
+		margin-bottom:2em;
+
+		input[name="name"] {
+			width: 30vw;
+			min-width: 20em;
+		}}
+
+		input[type="text"] {
+			width: 30vw;
+			min-width: 20em;
+		}
+		input[type="submit"], input[type="button"] {
+			margin: auto;
+			margin-top: 1em;
+		}
+
+	}
+	
+input[name="files[]"] { 
+    width: 0px;
+	height: 0px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+
+
+/*----focus manuel pour accessibilité-----*/
+input[name="files[]"]:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+input[name="files[]"] + label {
+	cursor: pointer; 
+}
+
+input[type="submit"] {
+		@include button;
+		max-width: 200px;
+		@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
+		color: white;
+		margin: 1em;
+		padding:0.5em;
+		border: 1px solid transparent;
+		width: 100px;
+		}
+
+input[type="button"] {
+		@include button;
+		max-width: 200px;
+		background-color: map-get($colors-BO, darkorange);
+		margin: 1em;
+		padding:0.5em;
+		border: 0px solid map-get($colors, darkblue);
+		width: 100px;
+		color: white;
+		}
+
+/*------------------------------------------------------------------*/
+.btn {
+	@include button;
+	width: auto;
+	max-width: 200px;
+	@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
+	color: white;
+}
+
+.btn:active,
+input[type="button"]:active,
+input[type="submit"]:active
+ {
+	@include gradient(map-get($colors-BO, lightorange), map-get($colors-BO, lightorange));
+	color: white;
+	@include transition ("background-color", 200ms);
+	border: 1px solid transparent;
+}
+
+.btn-empty {
+	@include button;
+	border: 1px solid map-get($colors, darkblue);
+	color: map-get($colors, darkblue);
+	max-width: 150px;
+}
+
+.map_btn {
+	@extend .btn;
+	width: 100px;
+	margin: auto;
+	margin-top: 1em;
+}
+
+  
+
+#msg {
+	width: 300px;
+	height: 50px;
+	border: 1px solid black;
+	color: red;
+	background-color: white;
+	position: fixed;
+	top: 80px;
+	left: 40%;
+}
+
+.menu_square {
+    @include square(10em);
+    a {text-decoration: none;
+    	color: white;
+    	text-transform: uppercase;
+    }
+}
+
+/*--------------------------error handling------------------------------*/
+
+.error {
+	border: 3px solid map-get($colors-BO, darkorange) !important;
+}
+
+#error_msg {display: none;
+			color: map-get($colors-BO, darkorange);
+			text-align: center;
+			font-size: 1.6em;
+			margin-bottom: 1em;
+}
+.error_msg {display: none;}
+
+
+/*----------------commentaires---------------------------------*/
+
+div[id^='repondre_']{display: none;}
+.hidden { display: none;}
+
+
+
+

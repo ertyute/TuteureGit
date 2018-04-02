@@ -1,0 +1,40 @@
+@import "_mixins.scss";
+
+//Couleurs de base
+/*----------------------------------------*/
+$colors: (
+	lightblue: #08a0b3,
+	darkblue: #33bcb7,
+	lightgrey: #f2f2f2,
+	background: #F4F4F2,
+	text: #f0573c
+);
+//#08a0b3,#0D5C63
+$colors-BO: (
+	lightorange: #FFAF44,
+	darkorange: #f0573c,
+	lightgrey: #e6e6e6
+
+);
+/*----------------------------------------*/
+
+//Polices
+
+@import url('https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,500,500i,900');
+/*----------------------------------------*/
+$font-logo: Caveat;
+$font-general: Montserrat;
+/*----------------------------------------*/
+$fonts: (
+	general: ($font-general, sans-serif),
+	h1: (3em $font-general, sans-serif),
+	text: (1em 500 $font-general, sans-serif),
+	logo: (3em $font-logo, sans-serif),
+	h2: (2em $font-general, sans-serif),
+	h3: (1.3em $font-general, sans-serif)
+	)
+
+//Images
+/*----------------------------------------*/
+//$bcg-image: url("images/website/bcg.jpg");
+/*----------------------------------------*/
