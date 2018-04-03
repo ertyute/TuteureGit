@@ -61,9 +61,9 @@ $fav = $result1->rowCount();
 </head>
 <body>
 <?php include("header.php"); ?>
-	<section class="left">
-		<div></div><a class="revenir" href="recherche.php">Revenir à la recherche</a>
-		<div>
+	<section class="top1">
+	
+		<a class="revenir" href="recherche.php">Revenir à la recherche</a>
 			<h1><?php echo $clubInfo[0]['name']; ?></h1>
 			<h4>
 <?php
@@ -73,6 +73,8 @@ $fav = $result1->rowCount();
 			}
 ?>
 			</h4>
+	</section>
+	<section class="left">
 			<hr/>
 			<span>
 <?php include "inc/evaluation.inc.php"; /*évaluation de préstataire*/?>
@@ -93,7 +95,6 @@ $fav = $result1->rowCount();
 <?php
 } /*----------FIN DE CHECKBOX-------------*/			
 ?>
-		</div>
 		<div>
 			<p><?php echo $clubInfo[0]['description_FR']; ?></p>
 		</div>
@@ -109,7 +110,16 @@ $fav = $result1->rowCount();
 			?>
 			</ul>
 		</div>
+		<div>
+			<div><?php echo $clubInfo[0]['address']; ?></div>
+			<div><?php echo $clubInfo[0]['telephone']; ?></div>
+			<div><?php echo $clubInfo[0]['mail']; ?></div>
+		</div>
+		<section class="comments">
+			<?php include("pages/comments/comment_club.php"); ?>
+		</section>
 	</section>
+
 	<section class="right">
 
 <?php
@@ -119,16 +129,7 @@ foreach ($img as $key => $value) {
 <?php
 }
 
-?>
-	<div>
-		<p><?php echo $clubInfo[0]['address']; ?></p>
-		<p><?php echo $clubInfo[0]['telephone']; ?></p>
-		<p><?php echo $clubInfo[0]['mail']; ?></p>
-	</div>
-		
-	</section>
-	<section class="comments">
-<?php include("pages/comments/comment_club.php"); ?>
+?>		
 	</section>
 	<?php include("pages/footer.php"); ?>
 </body>

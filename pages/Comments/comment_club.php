@@ -39,7 +39,7 @@ if (($res2->rowCount()) > 0 ) {
 			<textarea rows="4" cols="50" name="comment" class="comment"></textarea>
 <?php
 if ($ratingscount) {
-?>
+?>			<br>
 			<span>Evaluez <?php echo $clubInfo[0]['name']; ?></span>
 			<div class="rating">
 				<input type="radio" name="rating" value="1">1
@@ -74,8 +74,21 @@ foreach ($comments as $key => $comment) {
 		<div class="parent">
 			<img class="user_icon" alt ="" src="images/avatars/<?php echo $comments[$key]['url'];?>">
 			<h3><?php echo $comments[$key]['name'];?></h3>
-			<h4><?php echo $comments[$key]['rating_id'];?></h4>
 			<hr>
+			<br>
+<?php //Afficher les évaluations avec les étoiles
+if ($comments[$key]['rating_id'] !== NULL) {
+	$niveau = $comments[$key]['rating_id'];
+
+		for($i = 1; $i <= $niveau; $i++) {
+			echo "<img class='star' alt='' src='images/website/icons/pleine.jpg'/>";
+		}
+		for($j = $i; $j <= 5; $j++) {
+			echo "<img class='star' alt='' src='images/website/icons/vide.jpg'/>";
+		}
+}
+
+?>
 			<div><?php echo $comments[$key]['date'];?></div>
 			<p><?php echo $comments[$key]['message'];?></p>
 <?php
@@ -105,6 +118,7 @@ foreach ($comments as $k => $v) {
 		if ($comments[$k]['parent_id'] == $comments[$key]['id']) {
 ?>
 		<div class="enfant">
+			<div class="arrow_comment"></div>
 			<img class="user_icon" src="images/avatars/<?php echo $comments[$k]['url'];?>" alt="user icon">
 			<h3><?php echo $comments[$k]['name'];?></h3>
 			<hr>

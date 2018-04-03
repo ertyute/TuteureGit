@@ -7,6 +7,8 @@ $page = "index";
 $query="SELECT club.id, club.name, images.url FROM club
 LEFT JOIN images ON images.club_id=club.id
 GROUP BY club.id
+ORDER BY club.evaluation DESC
+LIMIT 6
 ;";
 $result = $pdo->prepare($query);
 $result->execute();
@@ -61,14 +63,13 @@ $clubs = $result->fetchAll();
 	<h2>Top clubs</h2>
 <?php
 	foreach ($clubs as $key => $value) {
-?>
-	<div class="club_item" style="background-image: url('images/clubs/<?php echo $clubs[$key]['url'];?>');">
-		<a href="club.php?id=<?php echo $clubs[$key]['page_id']; ?>">
+?>	<a href="club.php?id=<?php echo $clubs[$key]['id']; ?>">
+		<div class="club_item" style="background-image: url('images/clubs/<?php echo $clubs[$key]['url'];?>');">
 			<div>
 				<h4><?php echo $clubs[$key]['name']; ?></h4>
 			</div>
+		</div>
 		</a>
-	</div>
 <?php
 	}
 

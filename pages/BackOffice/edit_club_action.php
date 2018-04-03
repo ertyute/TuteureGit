@@ -3,13 +3,13 @@ require_once('../../_config.php');
 
 $name = $_POST["name"];
 
-$fr = $_POST["description_FR"];
-$en = $_POST["description_EN"];
+$fr = preg_quote($_POST["description_FR"]);
+$en = preg_quote($_POST["description_EN"]);
 
-$website = $_POST["site_web"];
-$mail = $_POST["mail"];
-$phone = $_POST["telephone"];
-$address = $_POST["address"];
+$website = htmlentities($_POST["site_web"]);
+$mail = htmlentities($_POST["mail"]);
+$phone = htmlentities($_POST["telephone"]);
+$address = htmlentities($_POST["address"]);
 $user_id = $_POST["user_id"];
 $id = $_POST["id"];
 

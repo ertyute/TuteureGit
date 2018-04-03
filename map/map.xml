@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <markers>
-  <marker id="1" type="club" name="Club Hippique de Nice" address=" 8 Boulevard des Jardiniers, 06200 Nice" longt="7.192216" lat="43.696769"/>
-  <marker id="2" type="club" name="Cheval sur les Monts" address="708 Avenue du Haut-Pays, 06690 Tourrette-Levens" longt="7.279464400000052" lat="43.7672186"/>
-  <marker id="10" type="club" name="Hoof au Cap Equitation" address="Èze, France" longt="7.361792" lat="43.7278189"/>
+  <marker id="1" type="club" name="Club Hippique de Nice" address=" 8 Boulevard des Jardiniers, 06200 Nice" longt="7.1922165" lat="43.6967688"/>
+  <marker id="2" type="club" name="A cheval sur les Monts" address="708 Avenue du Haut-Pays, 06690 Tourrette-Levens" longt="7.2794644" lat="43.7672186"/>
+  <marker id="10" type="club" name="Hoof In Cap Equitation" address="Èze, France" longt="7.361792" lat="43.7278189"/>
   <marker id="28" type="club" name="Centre Hippique de Mougins" address="909 Chemin de Font de Currault, 06250 Mougins, France" longt="7.0325875" lat="43.5917718"/>
   <marker id="31" type="club" name="AGASC Centre Equestre" address="1590 Chemin des Iscles, 06700 Saint-Laurent-du-Var, France" longt="7.1820394" lat="43.7139062"/>
   <marker id="33" type="club" name="Horse Planet Equitation" address="369 Chemin du Narbin, 06390 Berre-les-Alpes, France" longt="7.314895" lat="43.842553"/>

@@ -15,7 +15,7 @@
 	</div>
 	<div class="footer3">
 		<h4>Contactez nous</h4>
-		<form action="post.php" method="POST">
+		<form action="post.php" method="POST" id=contact_form>
     				<input type="text" id="name" name="name">
     					<label for="name" id="namelabel">Nom</label>
     					<label for="name" id="nameerror">Nom non renseigné</label>

@@ -15,7 +15,8 @@ body {
 h1 {
   font: 3em Montserrat, sans-serif;
   font-weight: 900;
-  color: #f0573c; }
+  color: #f0573c;
+  margin-top: 0.5em; }
 
 h2 {
   font: 2em Montserrat, sans-serif;
@@ -49,6 +50,17 @@ hr {
   height: 0;
   margin-left: 46%; }
 
+div {
+  position: relative; }
+  div .arrow_comment {
+    border-bottom: 16px solid #f0573c;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -1em; }
+
 .arrow_up {
   border-bottom: 35px solid white;
   border-left: 35px solid transparent;
@@ -57,7 +69,8 @@ hr {
   height: 0; }
 
 .heart_icon {
-  width: 30px; }
+  width: 30px;
+  float: right; }
 
 [id^='favori'] {
   display: none; }
@@ -421,5 +434,3 @@ div[id^='repondre_'] {
 
 .hidden {
   display: none; }
-
-/*# sourceMappingURL=general.css.map */

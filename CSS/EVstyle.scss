@@ -66,10 +66,9 @@ header {
 		width: 10em;
 		position: absolute;
 		padding:1em;
-		top: 5em;
-		right: 3.2em;
+		top: 3.15em;
+		right: -5em;
 		display: none;
-		z-index:-2;
 		box-shadow: 3px 3px 5px rgba(150, 150, 150, 0.1);
 
 		a {
@@ -80,7 +79,7 @@ header {
 		.menu_deco {
 		@include arrow(up, 15px, map-get($colors-BO, lightgrey));
 	  	position: absolute;
-	  	top: -0.95em;
+	  	top: -0.9em;
 	  	left: 4.6em;
 		}
 
@@ -120,10 +119,9 @@ header {
 }
 
 
-
+section {margin-left: 2em;}
 body section:first-of-type {
-	padding-top: 80px;
-	margin-bottom: 10em;
+	padding-top: 95px;
 }
 
 
@@ -155,12 +153,16 @@ body section:first-of-type {
 
 footer {
 	width: 99vw;
-	height: 50vh;
+	height: 20vh;
 	display: flex;
 	bottom: 0;
-	@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
+	//@include gradient(map-get($colors, darkblue), map-get($colors, lightblue));
 	z-index: 3;
+	background-color: white;
+
 }
+
+#contact_form {display: none;}
 
 #recherche {
 	height: 100vh;
@@ -237,16 +239,22 @@ footer {
 
 /*--------------- PAGE CLUB -----------------------*/
 
-.left {
-	width: 50vw;
-	float: left;
-	margin-top: 2em;
-	padding-left: 1em;
-	p {margin-top: 2em;
-	line-height: 1.4;
-	}
+.top1 {width: 100%;
+	padding-top: 2em;
+
 }
-	div:nth-child(4) {
+.left {
+	width: 47vw;
+	float: left;
+	padding-left: 1em;
+	padding-top: 2em;
+	&>div>p {margin-top: 3em;
+		margin-bottom: 3em;
+	line-height: 1.5;
+	}
+	hr {margin-top: 0;}
+}
+	div:nth-child(5) {
 	line-height: 1.6;
 	}
 
@@ -259,31 +267,46 @@ footer {
 	z-index: 1;
 	img {position: absolute;
 		width: 45vw;
+		padding-top: 2em;
 	}
 	div {
 		position: absolute; 
 		top: 70vh;
 		z-index: 5;
 		background-color: white;
+		width: 50vw;
+		padding: 1em;
 	}
 }
 
 .comments {height: auto;
-width: 30vw;
+width: 40vw;
 float: left;
-
+.user_icon {float: left;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+h3 {display: block;
+	margin-left: 1em;
+	margin-top: 0.5em;
+}
+h3::after {
+   clear: both;
+}
  & > div {
-	border-radius: 10px;
-	border: 1px solid lightgrey;
-	padding: 1em;
-	margin: 1em;
-	float: left;
-	background-color: white;
+	@include comment;
 	width: 40vw;
-}
+	p {font-size: 1.1em;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		line-height:  1.5em;
+	}
+	}
 }
 
-.enfant { margin-left: 4em!important;}
+.enfant { margin-left: 4em!important;
+		width: 35.5vw!important;
+}
 
 
 .bordered {
@@ -296,7 +319,6 @@ float: left;
 	float: left;
 	width: 30%;
 }
-
 
 
 /*---------------BACK OFFICE -----------------------*/

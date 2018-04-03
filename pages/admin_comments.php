@@ -10,64 +10,70 @@ if (!isset($_SESSION["name"])) { header('Location: BackOffice/_nopermission.php'
 
 /*-------------------------------*/
 
-$query = 'SELECT event.name, event.date, users.name, event.id  FROM event LEFT JOIN users ON event.user_id=users.id;';
+$query = "SELECT comment.id, comment.message, comment.rating_id, comment.date, comment.lang, comment.parent_id, users.name, images.url, comment.page_type, comment.page_id
+FROM comment 
+LEFT JOIN users ON comment.user_id=users.id
+LEFT JOIN images ON users.id=images.user_id
+ORDER BY comment.date DESC
+;";
 $result = $pdo->prepare($query);
 $result->execute();
-$events = $result->fetchAll();
+$comments = $result->fetchAll();
 
 
 
 /* start of HTML _________*/
 include ('_head_office.php');
 ?>
+
 </head>
 <body>
 
-<?php include("_header_office.php"); ?>
+<?php include("_header_office.php"); 
+?><section class="comments"><?php
+	/*_________-----------affichage des commentaires----------------__________*/
 
-	<section class="office">
-		<h1>Gestion des Evènements</h1>
-		<br><br>
-		<a class = "btn" href="admin_new_event.php">Nouveau évènement</a>
-		<input type="text" id="myInput" onkeyup="search()" placeholder="Cherchez..">
-		<table id="myTable">
-			<tr>
-				<th>Evènement</th>
-				<th>Date</th>
-				<th>Crée par</th>
-			</tr>
-<?php
-	foreach ($events as $key => $value) {
-?>
-			<tr>
-				<td><a href=""><?php echo $value[0]; ?></a></td>
-				<td><?php echo $value["date"]; ?></td>
-				<td><?php echo $value["name"]; ?></td>
-				<td>
-				<form action="admin_edit_event.php" method="POST">
-					<input type="hidden" name="id" value="<?php echo $value['id']?>">
-					<input type="submit" class="btn-empty" value="Changer">
-				</form>
-				<td>
-					<form action="Events/delete_event.php" method="POST">
-						<input type="hidden" name="id" value="<?php echo $value['id']?>">
-						<input type="submit" class="btn-empty" value="Supprimer">
-					</form>
-				</td>
-			</tr>
-<?php
-	}
-?>
-		</table>
-	
-	</section>
-<?php
-	if (isset($_GET["msg"])) {
-		echo "<div id='msg'>";
-		echo $_GET["msg"];
-		echo "</div>";
-	}
-?>
+foreach ($comments as $key => $comment) {
 
+?>
+		<div class="parent">
+			<img class="user_icon" alt ="" src="../images/avatars/<?php echo $comments[$key]['url'];?>">
+			<h3><?php echo $comments[$key]['name'];?></h3>
+<?php //Afficher les évaluations avec les étoiles
+if ($comments[$key]['rating_id'] !== NULL) {
+	$niveau = $comments[$key]['rating_id'];
+
+		for($i = 1; $i <= $niveau; $i++) {
+			echo "<img class='star' alt='' src='../images/website/icons/pleine.jpg'/>";
+		}
+		for($j = $i; $j <= 5; $j++) {
+			echo "<img class='star' alt='' src='../images/website/icons/vide.jpg'/>";
+		}
+}
+
+?>
+			<hr>
+			<div><?php echo $comments[$key]['date'];?></div>
+			<p><?php echo $comments[$key]['message'];?></p>
+			<button id="btn_repondre_<?php echo $comments[$key]['id']; ?>">Repondre</button> 
+			<button id="btn_supprimer_<?php echo $comments[$key]['id']; ?>">Supprimer</button>
+		</div>
+<?php
+	};
+?>
+	<div id="repondre_<?php echo $comments[$key]['id']; ?>">
+ 		<form action="pages/comments/comment_post.php" method="POST">
+			<img class="user_icon" alt ="" src="images/avatars/<?php echo $_SESSION["avatar"];?>">
+			<textarea rows="4" cols="50" name="comment" class="comment"></textarea>
+			<input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
+			<input type="hidden" name="club_id" value="<?php echo $clubInfo[0]['id']; ?>">
+			<input type="hidden" name="parent_id" value="<?php echo $comments[$key]['id'];?>">
+			<input type="hidden" name="page_type" value="club">
+			<span class="error_msg">Votre commentaire est vide</span>
+			<br>
+			<button class="submit">Envoyer</button>
+		</form>
+	</div>
+</section>
 </body>
 </html>

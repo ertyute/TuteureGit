@@ -79,11 +79,11 @@ include ('_head_office.php');
 				</div>
 				<span class="arrow"></span>
 				<div>
-					<textarea rows="4" cols="50" id="description_FR" name="description_FR" value="<?php echo $club[0]['description_FR']; ?>" ></textarea>
+					<textarea rows="4" cols="50" id="description_FR" name="description_FR" ><?php echo $club[0]["description_FR"]; ?></textarea>
 					<br>
 					<label for="description_FR">* Description en français</label>
 					<br><br><br>
-					<textarea name="description_EN" id="description_EN" value="<?php echo $club[0]['description_EN']; ?>"></textarea>
+					<textarea name="description_EN" id="description_EN"><?php echo $club[0]['description_EN']; ?></textarea>
 					<br>
 					<label for="description_EN" id="EN">Description in English</label>
 					<br><br>
